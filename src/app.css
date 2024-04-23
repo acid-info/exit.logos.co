@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("/fonts/CascadiaCode.ttf");
+}
+
+* {
+  font-family: "Cascadia Code", monospace;
+}
+
+* {
+  scrollbar-width: 0;
+}
+
+body {
+  background-color: transparent;
+}
+
+.banner {
+  white-space: pre-wrap;
+}
+
+main > div > div:first-child {
+  display: none;
+}
+
+#input {
+  margin-top: 24px;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  white-space: pre-wrap;
+}
+
+.whitespace-pre {
+  white-space: pre;
+}
+
+.link {
+  color: #828282;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: none;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 12px;
+  width: 270px;
+}
+
+.apply-form > label {
+  color: var(--green);
+}
+
+.apply-form > p {
+  color: var(--green);
+}
+
+.apply-input {
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid var(--green);
+  margin-bottom: 12px;
+}
+
+.apply-submit {
+  padding: 4px 12px;
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.theme-list {
+  white-space: pre-wrap !important;
+}
+
+@media (max-width: 768px) {
+  .apply-form {
+    flex-direction: column;
+  }
+
+  main {
+    padding: 1rem !important;
+  }
+
+  .whitespace-pre {
+    font-size: 12px;
+  }
+}

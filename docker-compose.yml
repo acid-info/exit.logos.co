@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    container_name: "${CONTAINER_NAME:-exit-game-app}"
+    build: .
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:${PORT:-3000}:${PORT:-3000}"
+    command: >
+      -f
+      -v
+      -p ${PORT:-3000}
+      -c httpd.conf
