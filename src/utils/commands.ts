@@ -157,7 +157,8 @@ export const commands: Record<
 
 Logos is an independent cyberstate, a new territory in cyberspace.
 We are building a fully decentralised anonymous tech stack, the original vision for web 3.
-Operators are the first entry point into our new ecosystem, a privilege reserved for the diasporas of the physical world.
+Operators are the first entry point into our new ecosystem, a privilege reserved for the
+diasporas of the physical world.
 These early inhabitants will inherent  the rights of the new jurisdiction in cyberspace.
 
 Type 'help' to see list of available commands.
