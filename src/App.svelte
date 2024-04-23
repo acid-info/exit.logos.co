@@ -19,12 +19,7 @@
       event.preventDefault();
 
       const form = document.querySelector(".apply-form");
-      const name = form.querySelector("#form-name").value;
-      const email = form.querySelector("#form-email").value;
-
-      const x = form.querySelector("#form-x").value;
-      const reason = form.querySelector("#form-reason").value;
-      const contribution = form.querySelector("#form-contribution").value;
+      const btc = form.querySelector("#form-btc").value;
 
       const res = await fetch(
         `https://odoo.logos.co/website_mass_mailing/subscribe3`,
@@ -37,13 +32,10 @@
             jsonrpc: "2.0",
             method: "call",
             params: {
-              value: email,
+              value: btc,
               name: name || "",
               list_id: 12,
               subscription_type: "email",
-              social: x || "",
-              reason: reason || "",
-              contribution: contribution || "",
             },
           }),
         }

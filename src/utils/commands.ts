@@ -12,22 +12,9 @@ export const commands: Record<
   apply: async () => {
     const htmlString = `<template>
 <form class="apply-form" onsubmit="handleSubmit(event)">
-  <p>Apply for membership.</p>
   <br/>
-  <label for="form-name">Name or pseudonym (required)</label>
-  <input class="apply-input" id="form-name" placeholder="Enter here" required />
-  
-  <label for="form-email">Email (required)</label>
-  <input class="apply-input" id="form-email" placeholder="Enter here" type="email" required />
-  
-  <label for="form-x">X handle</label>
-  <input class="apply-input" id="form-x" placeholder="Enter here" />
-  
-  <label for="form-reason">Why do you want to join?</label>
-  <input class="apply-input" id="form-reason" placeholder="Enter here" />
-
-  <label for="form-contribution">What do you bring to the table?</label>
-  <input class="apply-input" id="form-contribution" placeholder="Enter here" />
+  <label for="form-name">Taproot BTC address (required)</label>
+  <input class="apply-input" id="form-btc" placeholder="Enter here" required />
   
   <button class="apply-submit">Submit</button>
 </form>
@@ -51,11 +38,6 @@ export const commands: Record<
     );
 
     return `Available commands: ${filteredCommands.join(", ")}`;
-  },
-  email: () => {
-    window.open(`mailto:exit.logos.co`);
-
-    return `Opening mailto:exit.logos.co`;
   },
   theme: (args: string[]) => {
     const usage = `Usage: theme [args].
@@ -175,23 +157,13 @@ export const commands: Record<
 
 -----------------------------------------------------------------------------
 
-The Exit Game is a members-only network of cypherpunks, builders,
-technologists, and resource allocators harnessing the transformational power
-of discovering together. We actively work to advance the knowledge and
-development of cryptography, privacy, competitive governance and digital
-public goods. 
+Logos is an independent cyberstate, a new territory in cyberspace.
 
-As part of the Institute of Free Technology we support the development,
-adoption, and accessibility of solutions to digital age problems and are
-guided by our principles: liberty, censorship resistance, security, privacy,
-and inclusivity. We seek to connect with and support those innovating to
-defend our digital rights.
+We are building a fully decentralised anonymous tech stack, the original vision for web 3.
 
-We participate in regular roundtable discussions and in person events that
-focus on curated topics. The objective of these meetings is to share
-insights, generate new ideas, and build the future we want to see.
+Operators are the first entry point into our new ecosystem, a privilege reserved for the diasporas of the physical world.
 
-Type 'help' to see list of available commands.`;
+These early inhabitants will inherent  the rights of the new jurisdiction in cyberspace.`;
 
     displayTextLetterByLetter("banner", text);
 
