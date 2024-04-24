@@ -155,11 +155,15 @@ export const commands: Record<
 ███████╗██╔╝ ██╗██║   ██║       ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
 ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝                                               
 
-Logos is an independent cyberstate, a new territory in cyberspace.
-We are building a fully decentralised anonymous tech stack, the original vision for web 3.
-Operators are the first entry point into our new ecosystem, a privilege reserved for the
-diasporas of the physical world.
-These early inhabitants will inherent  the rights of the new jurisdiction in cyberspace.
+Logos is building a fully decentralised technology stack
+that provides the necessary support for self-sovereign virtual territories. 
+
+Following the original vision for web 3, the stack includes three blockchain-based protocols:
+decentralised storage, private messaging, and a next generation layer 1.
+When combined, they provide the technical foundation for truly decentralised applications,
+network states, or any borderless public institution.
+
+Operators are the first entry point into our new ecosystem, pioneers of a new jurisdiction in cyberspace.
 
 Type 'help' to see list of available commands.
 Available commands: apply, help, theme`;
