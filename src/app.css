@@ -38,7 +38,7 @@ main > div > div:first-child {
 }
 
 .whitespace-pre {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .link {
