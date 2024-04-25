@@ -97,6 +97,10 @@ main > div > div:first-child {
   margin-bottom: 24px;
 }
 
+.link {
+  color: var(--green);
+}
+
 .theme-list {
   white-space: pre-wrap !important;
 }
