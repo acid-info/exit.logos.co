@@ -43,8 +43,6 @@
         (item: any) => item.command === "banner"
       );
 
-      console.log(findBanner);
-
       if (!findBanner) {
         organnizedHistory = [
           { command: "banner", outputs: [ascii + banner] },
@@ -54,7 +52,6 @@
 
       $history = organnizedHistory;
     }
-    console.log($history);
   });
 
   afterUpdate(() => {
