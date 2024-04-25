@@ -11,8 +11,8 @@
   }
 </script>
 
-<p class="pre"></p>
-<p class="banner"></p>
+<p id="ascii"></p>
+<p id="banner"></p>
 
 {#each $history as { command, outputs }}
   <div style={`color: ${$theme.foreground}`}>

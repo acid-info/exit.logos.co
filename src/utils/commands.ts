@@ -3,7 +3,39 @@ import themes from "../../themes.json";
 import { history } from "../stores/history";
 import { theme } from "../stores/theme";
 
-const hostname = window.location.hostname;
+export const hostname = window.location.hostname;
+
+export const ascii = `███████╗██╗  ██╗██╗████████╗     ██████╗  █████╗ ███╗   ███╗███████╗
+██╔════╝╚██╗██╔╝██║╚══██╔══╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+█████╗   ╚███╔╝ ██║   ██║       ██║  ███╗███████║██╔████╔██║█████╗  
+██╔══╝   ██╔██╗ ██║   ██║       ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
+███████╗██╔╝ ██╗██║   ██║       ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+
+`;
+
+export const banner = `We are taking back the internet.
+
+Against the rise of the corporate-Net, we are building a counter-Net
+
+A censorship resistant, decentralised technology stack that provides
+the support for independent virtual territories.
+Following the original cypherpunk vision, it includes three blockchain protocols with
+built in network level privacy:
+decentralised storage, private messaging, and a next-generation layer 1. 
+
+We are looking for high level Operators on our mission to liberate the internet,
+re-open the frontier and exit the current status quo.
+Each Operator is a counter-Net identity and the first entry point into our new ecosystem,
+the pioneers of a sovereign enclave in cyberspace. 
+
+Don't just survive while waiting for our revolution to clear your head.
+We are rebuilding the internet. Inscribe your place among us. 
+
+Apply to be Blacklisted
+
+Type 'help' to see list of available commands.
+Available commands: apply, help, theme, manifesto.txt`;
 
 export const commands: Record<
   string,
@@ -96,22 +128,13 @@ export const commands: Record<
 `;
   },
   banner: () => {
-    function extractContentsFromPre(htmlString: string) {
-      const content = htmlString.split("<pre>")[1].split("</pre>");
-      return content;
-    }
-
     function displayTextLetterByLetter(
-      elementClass: any,
+      id: any,
       content: any,
       minDelay = 1,
       maxDelay = 10
     ) {
-      const elements = document.getElementsByClassName(elementClass);
-      const element = elements[elements.length - 1];
-
-      const [ascii, text] = extractContentsFromPre(content);
-
+      const element = document.getElementById(id);
       if (!element) return;
 
       // Append cursor initially
@@ -122,10 +145,10 @@ export const commands: Record<
 
       let currentIndex = 0;
 
-      function displayNextLetter(string: string) {
-        if (currentIndex < string.length) {
-          let charToAdd = string[currentIndex];
-          if (string.substr(currentIndex, 4) === "<br>") {
+      function displayNextLetter() {
+        if (currentIndex < content.length) {
+          let charToAdd = content[currentIndex];
+          if (content.substr(currentIndex, 4) === "<br>") {
             charToAdd = "<br>";
             currentIndex += 4;
           } else {
@@ -145,56 +168,25 @@ export const commands: Record<
           setTimeout(displayNextLetter, randomDelay);
         } else {
           cursor.style.display = "none";
-          const baner = document.getElementsByClassName("banner")[0];
 
-          if (baner) {
-            // delete the banner
-            baner.remove();
-            // add the banner to the history
-            history.update((h) => [
-              ...h,
-              { command: "banner", outputs: [string] },
-            ]);
+          const element = document.getElementById(id);
+
+          if (element?.id === "banner") {
+            history.update((h) => []);
           }
+
+          return "";
         }
       }
 
-      // displayNextLetter(ascii);
-
-      displayNextLetter(text);
+      displayNextLetter();
     }
 
-    const text = `<pre>███████╗██╗  ██╗██╗████████╗     ██████╗  █████╗ ███╗   ███╗███████╗
-██╔════╝╚██╗██╔╝██║╚══██╔══╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
-█████╗   ╚███╔╝ ██║   ██║       ██║  ███╗███████║██╔████╔██║█████╗  
-██╔══╝   ██╔██╗ ██║   ██║       ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
-███████╗██╔╝ ██╗██║   ██║       ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
-╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝</pre>                                               
+    displayTextLetterByLetter("ascii", ascii);
 
-We are taking back the internet.
-
-Against the rise of the corporate-Net, we are building a counter-Net
-
-A censorship resistant, decentralised technology stack that provides
-the support for independent virtual territories.
-Following the original cypherpunk vision, it includes three blockchain protocols with
-built in network level privacy:
-decentralised storage, private messaging, and a next-generation layer 1. 
-
-We are looking for high level Operators on our mission to liberate the internet,
-re-open the frontier and exit the current status quo.
-Each Operator is a counter-Net identity and the first entry point into our new ecosystem,
-the pioneers of a sovereign enclave in cyberspace. 
-
-Don't just survive while waiting for our revolution to clear your head.
-We are rebuilding the internet. Inscribe your place among us. 
-
-Apply to be Blacklisted
-
-Type 'help' to see list of available commands.
-Available commands: apply, help, theme, manifesto.txt`;
-
-    displayTextLetterByLetter("banner", text);
+    setTimeout(() => {
+      displayTextLetterByLetter("banner", banner);
+    }, 2800);
 
     return "";
   },

@@ -2,7 +2,7 @@
   import { afterUpdate, onMount } from "svelte";
   import { history } from "../stores/history";
   import { theme } from "../stores/theme";
-  import { commands } from "../utils/commands";
+  import { ascii, banner, commands } from "../utils/commands";
   import { track } from "../utils/tracking";
 
   let command = "";
@@ -25,11 +25,36 @@
 
       if (command) {
         const output = command();
-        console.log("output", output);
 
         $history = [...$history, { command: "banner", outputs: [output] }];
       }
     }
+
+    if ($history?.length > 0) {
+      let organnizedHistory: any = [];
+
+      $history.forEach((item) => {
+        if (item.command !== "") {
+          organnizedHistory.push(item);
+        }
+      });
+
+      const findBanner = organnizedHistory.find(
+        (item: any) => item.command === "banner"
+      );
+
+      console.log(findBanner);
+
+      if (!findBanner) {
+        organnizedHistory = [
+          { command: "banner", outputs: [ascii + banner] },
+          ...organnizedHistory,
+        ];
+      }
+
+      $history = organnizedHistory;
+    }
+    console.log($history);
   });
 
   afterUpdate(() => {
