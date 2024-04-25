@@ -22,7 +22,7 @@
       const btc = form.querySelector("#form-btc").value;
 
       const res = await fetch(
-        `https://odoo.logos.co/website_mass_mailing/subscribe3`,
+        `https://odoo.logos.co/website_mass_mailing/subscribe2`,
         {
           method: "POST",
           headers: {
