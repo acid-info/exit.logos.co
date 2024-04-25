@@ -34,7 +34,7 @@
             params: {
               value: btc,
               name: name || "",
-              list_id: 12,
+              list_id: 16,
               subscription_type: "email",
             },
           }),
