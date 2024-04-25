@@ -13,8 +13,6 @@
   onMount(() => {
     input.focus();
 
-    console.log("dsadas", $theme);
-
     document.documentElement.style.setProperty(
       "--text-color",
       `${$theme.foreground}`

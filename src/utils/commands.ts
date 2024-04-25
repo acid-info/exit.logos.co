@@ -96,27 +96,36 @@ export const commands: Record<
 `;
   },
   banner: () => {
+    function extractContentsFromPre(htmlString: string) {
+      const content = htmlString.split("<pre>")[1].split("</pre>");
+      return content;
+    }
+
     function displayTextLetterByLetter(
       elementClass: any,
-      text: any,
+      content: any,
       minDelay = 1,
       maxDelay = 10
     ) {
       const elements = document.getElementsByClassName(elementClass);
       const element = elements[elements.length - 1];
+
+      const [ascii, text] = extractContentsFromPre(content);
+
       if (!element) return;
 
       // Append cursor initially
       const cursor = document.createElement("span");
       cursor.className = "cursor";
+
       element.appendChild(cursor);
 
       let currentIndex = 0;
 
-      function displayNextLetter() {
-        if (currentIndex < text.length) {
-          let charToAdd = text[currentIndex];
-          if (text.substr(currentIndex, 4) === "<br>") {
+      function displayNextLetter(string: string) {
+        if (currentIndex < string.length) {
+          let charToAdd = string[currentIndex];
+          if (string.substr(currentIndex, 4) === "<br>") {
             charToAdd = "<br>";
             currentIndex += 4;
           } else {
@@ -135,30 +144,32 @@ export const commands: Record<
           let randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
           setTimeout(displayNextLetter, randomDelay);
         } else {
-          // If all characters are added, remove the cursor
           cursor.style.display = "none";
           const baner = document.getElementsByClassName("banner")[0];
+
           if (baner) {
             // delete the banner
             baner.remove();
             // add the banner to the history
             history.update((h) => [
               ...h,
-              { command: "banner", outputs: [text] },
+              { command: "banner", outputs: [string] },
             ]);
           }
         }
       }
 
-      displayNextLetter();
+      // displayNextLetter(ascii);
+
+      displayNextLetter(text);
     }
 
-    const text = `███████╗██╗  ██╗██╗████████╗     ██████╗  █████╗ ███╗   ███╗███████╗
+    const text = `<pre>███████╗██╗  ██╗██╗████████╗     ██████╗  █████╗ ███╗   ███╗███████╗
 ██╔════╝╚██╗██╔╝██║╚══██╔══╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
 █████╗   ╚███╔╝ ██║   ██║       ██║  ███╗███████║██╔████╔██║█████╗  
 ██╔══╝   ██╔██╗ ██║   ██║       ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
 ███████╗██╔╝ ██╗██║   ██║       ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
-╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝                                               
+╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝</pre>                                               
 
 We are taking back the internet.
 

@@ -4,11 +4,14 @@
   import Ps1 from "./Ps1.svelte";
 
   function parseTemplateString(templateString: string) {
-    const htmlContent = templateString.replace('<template>', '').replace('</template>', '');
+    const htmlContent = templateString
+      .replace("<template>", "")
+      .replace("</template>", "");
     return htmlContent;
   }
 </script>
 
+<p class="pre"></p>
 <p class="banner"></p>
 
 {#each $history as { command, outputs }}

@@ -23,6 +23,10 @@ body {
   white-space: pre-wrap;
 }
 
+.pre {
+  white-space: pre;
+}
+
 main > div > div:first-child {
   display: none;
 }
