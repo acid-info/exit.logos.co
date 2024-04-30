@@ -24,7 +24,7 @@ We are recruiting high-level Operators to exit into our new ecosystem, the pione
 
 Inscribe your place among us.
 
-Available commands: apply, help, theme, manifesto.txt, socials`;
+Available commands: apply, help, theme, manifesto, socials`;
 
 export const commands: Record<
   string,
@@ -111,7 +111,7 @@ export const commands: Record<
       }
     }
   },
-  "manifesto.txt": () => {
+  manifesto: () => {
     return `<template><br/><a class="link" href="https://logos.co/manifesto/" target="_blank">https://logos.co/manifesto</a>
 </template>
 `;
