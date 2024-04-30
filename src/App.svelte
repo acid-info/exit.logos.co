@@ -51,6 +51,23 @@
         alert("Thank you for applying!");
       }
     }
+
+    (function (f, a, t, h, o, m) {
+      a[h] =
+        a[h] ||
+        function () {
+          (a[h].q = a[h].q || []).push(arguments);
+        };
+      (o = f.createElement("script")),
+        (m = f.getElementsByTagName("script")[0]);
+      o.async = 1;
+      o.src = t;
+      o.id = "fathom-script";
+      m.parentNode.insertBefore(o, m);
+      console.log("Fathom script loaded");
+    })(document, window, "//fathom.bi.status.im/tracker.js", "fathom");
+    fathom("set", "siteId", "VEJFY");
+    fathom("trackPageview");
   </script>
 </svelte:head>
 

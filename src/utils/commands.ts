@@ -140,7 +140,10 @@ export const commands: Record<
 
       function displayNextLetter() {
         if (currentIndex < content.length) {
+          history.update(() => []);
+
           let charToAdd = content[currentIndex];
+
           if (content.substr(currentIndex, 4) === "<br>") {
             charToAdd = "<br>";
             currentIndex += 4;

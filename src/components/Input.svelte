@@ -39,13 +39,11 @@
         }
       });
 
-      const findBanner = organnizedHistory.find(
-        (item: any) => item.command === "banner"
-      );
+      const content = ascii + banner;
 
-      if (!findBanner) {
+      if ($history[0]?.command !== "banner") {
         organnizedHistory = [
-          { command: "banner", outputs: [ascii + banner] },
+          { command: "banner", outputs: [content] },
           ...organnizedHistory,
         ];
       }
@@ -61,21 +59,22 @@
   const handleKeyDown = async (event: KeyboardEvent) => {
     if (event.key === "Enter") {
       const [commandName, ...args] = command.split(" ");
+      const lowerCaseCommandName = commandName.toLowerCase();
 
       if (import.meta.env.VITE_TRACKING_ENABLED === "true") {
-        track(commandName, ...args);
+        track(lowerCaseCommandName, ...args);
       }
 
-      const commandFunction = commands[commandName];
+      const commandFunction = commands[lowerCaseCommandName];
 
       if (commandFunction) {
         const output = await commandFunction(args);
 
-        if (commandName !== "clear") {
+        if (lowerCaseCommandName !== "clear") {
           $history = [...$history, { command, outputs: [output] }];
         }
       } else {
-        const output = `${commandName}: command not found`;
+        const output = `${lowerCaseCommandName}: command not found`;
 
         $history = [...$history, { command, outputs: [output] }];
       }
