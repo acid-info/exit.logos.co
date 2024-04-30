@@ -64,7 +64,6 @@
       o.src = t;
       o.id = "fathom-script";
       m.parentNode.insertBefore(o, m);
-      console.log("Fathom script loaded");
     })(document, window, "//fathom.bi.status.im/tracker.js", "fathom");
     fathom("set", "siteId", "VEJFY");
     fathom("trackPageview");
