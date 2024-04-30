@@ -14,28 +14,16 @@ export const ascii = `███████╗██╗  ██╗██╗█�
 
 `;
 
-export const banner = `We are taking back the internet.
+export const banner = `Against the rise of the corporate-Net, we are building a counter-Net.
 
-Against the rise of the corporate-Net, we are building a counter-Net
+Logos is a censorship resistant, decentralised technology stack that seeds the possibility for independent virtual territories, built with base layer privacy following the cypherpunk ethos.
 
-A censorship resistant, decentralised technology stack that provides
-the support for independent virtual territories.
-Following the original cypherpunk vision, it includes three blockchain protocols with
-built in network level privacy:
-decentralised storage, private messaging, and a next-generation layer 1. 
+We are recruiting high-level Operators to exit into our new ecosystem, the pioneers of a sovereign enclave in cyberspace.
 
-We are looking for high level Operators on our mission to liberate the internet,
-re-open the frontier and exit the current status quo.
-Each Operator is a counter-Net identity and the first entry point into our new ecosystem,
-the pioneers of a sovereign enclave in cyberspace. 
-
-Don't just survive while waiting for our revolution to clear your head.
-We are rebuilding the internet. Inscribe your place among us. 
-
-Apply to be Blacklisted
+Inscribe your place among us.
 
 Type 'help' to see list of available commands.
-Available commands: apply, help, theme, manifesto.txt`;
+Available commands: apply, help, theme, manifesto.txt, socials`;
 
 export const commands: Record<
   string,
@@ -124,6 +112,11 @@ export const commands: Record<
   },
   "manifesto.txt": () => {
     return `<template><br/><a class="link" href="https://logos.co/manifesto/" target="_blank">https://logos.co/manifesto</a>
+</template>
+`;
+  },
+  socials: () => {
+    return `<template><br/><a class="link" href="https://twitter.com/exit_operator" target="_blank">https://twitter.com/exit_operator</a>
 </template>
 `;
   },
