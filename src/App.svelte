@@ -3,6 +3,20 @@
   import Input from "./components/Input.svelte";
   import History from "./components/History.svelte";
   import { theme } from "./stores/theme";
+
+  function closeModal() {
+    const modal = document.getElementById("modal");
+    if (modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function handleClickOutside(event: MouseEvent) {
+    const modal = document.getElementById("modal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
 </script>
 
 <svelte:head>
@@ -14,7 +28,9 @@
       src={import.meta.env.VITE_TRACKING_URL}
     ></script>
   {/if}
+
   <script>
+    // form submission
     async function handleSubmit(event) {
       event.preventDefault();
 
@@ -52,6 +68,7 @@
       }
     }
 
+    // Fathom tracking
     (function (f, a, t, h, o, m) {
       a[h] =
         a[h] ||
@@ -80,5 +97,12 @@
     <Ps1 />
 
     <Input />
+  </div>
+
+  <div id="modal" class="modal" on:click={handleClickOutside}>
+    <div class="modal-content">
+      <div class="close-button" on:click={closeModal}>×</div>
+      <img src="/operator.gif" alt="Operator" width="100%" />
+    </div>
   </div>
 </main>
