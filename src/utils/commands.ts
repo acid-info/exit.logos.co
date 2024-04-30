@@ -14,7 +14,9 @@ export const ascii = `███████╗██╗  ██╗██╗█�
 
 `;
 
-export const banner = `Against the rise of the corporate-Net, we are building a counter-Net.
+export const banner = `We are taking back the internet. 
+
+Against the rise of the corporate-Net, we are building a counter-Net.
 
 Logos is a censorship resistant, decentralised technology stack that seeds the possibility for independent virtual territories, built with base layer privacy following the cypherpunk ethos.
 
