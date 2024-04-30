@@ -22,7 +22,6 @@ We are recruiting high-level Operators to exit into our new ecosystem, the pione
 
 Inscribe your place among us.
 
-Type 'help' to see list of available commands.
 Available commands: apply, help, theme, manifesto.txt, socials`;
 
 export const commands: Record<

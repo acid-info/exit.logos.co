@@ -26,7 +26,8 @@
       if (command) {
         const output = command();
 
-        $history = [...$history, { command: "banner", outputs: [output] }];
+        // $history = [...$history, { command: "banner", outputs: [output] }];
+        $history = [];
       }
     }
 
@@ -48,7 +49,8 @@
         ];
       }
 
-      $history = organnizedHistory;
+      // $history = organnizedHistory;
+      $history = [];
     }
   });
 
