@@ -31,7 +31,10 @@ export const commands: Record<
   (args: string[]) => Promise<string> | string
 > = {
   apply: async () => {
-    const htmlString = `<template><br/><a class="link" href="https://discord.gg/udJxXA9r" target="_blank">https://discord.gg/udJxXA9rk</a>
+    const htmlString = `<template><br/>
+    <p>Select the Operator role and ask the right questions.</p>
+    <br/>
+    <a class="link" href="https://discord.gg/udJxXA9r" target="_blank">https://discord.gg/udJxXA9rk</a>
 </template>`;
 
     return htmlString;
