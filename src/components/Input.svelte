@@ -11,6 +11,7 @@
   let input: HTMLInputElement;
 
   onMount(() => {
+    $history = [];
     input.focus();
 
     document.documentElement.style.setProperty(
