@@ -31,14 +31,7 @@ export const commands: Record<
   (args: string[]) => Promise<string> | string
 > = {
   apply: async () => {
-    const htmlString = `<template>
-<form class="apply-form" onsubmit="handleSubmit(event)">
-  <br/>
-  <label for="form-name">Taproot BTC address (required)</label>
-  <input class="apply-input" id="form-btc" placeholder="Enter here" required />
-  
-  <button class="apply-submit">Submit</button>
-</form>
+    const htmlString = `<template><br/><a class="link" href="https://discord.gg/udJxXA9r" target="_blank">https://discord.gg/udJxXA9rk</a>
 </template>`;
 
     return htmlString;
