@@ -34,7 +34,7 @@ export const commands: Record<
     const htmlString = `<template><br/>
     <p>Select the Operator role and ask the right questions.</p>
     <br/>
-    <a class="link" href="https://discord.gg/udJxXA9r" target="_blank">https://discord.gg/udJxXA9rk</a>
+    <a class="link" href="https://discord.gg/logosnetwork" target="_blank">https://discord.gg/logosnetwork</a>
 </template>`;
 
     return htmlString;
