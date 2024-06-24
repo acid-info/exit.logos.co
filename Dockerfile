@@ -9,10 +9,10 @@ COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 RUN yarn build
 
-FROM lipanski/docker-static-website:latest
+FROM lipanski/docker-static-website:2.4.0
 COPY --from=builder /app/dist .
 COPY httpd.conf .
 ARG PORT=3000
 EXPOSE ${PORT}
-ENTRYPOINT ["/busybox", "httpd"]
+ENTRYPOINT ["/busybox-httpd"]
 CMD ["-f", "-v", "-p", "${PORT}", "-c", "httpd.conf"]
