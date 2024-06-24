@@ -1,0 +1,697 @@
+<!DOCTYPE html><html lang="en" data-bs-theme="dark"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <meta name="theme-color" content="#712cf9">
+  <title> Exit Game</title>
+  <script src="js/jquery-3.3.1.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+  <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  <script src="js/jquery.terminal.min.js"></script>
+  <link rel="stylesheet" href="css/jquery.terminal.min.css">
+  <script src="js/wcwidth.js"></script>
+  <script src="js/forms.js"></script>
+
+
+
+  <script type="module" src="js/index.js"></script>
+
+
+  <style>
+
+  </style>
+
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;family=VT323&amp;display=swap" rel="stylesheet">
+<script src="js/jquery-glitch.js"></script>
+<link href="css/jquery-glitch.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+  
+<div class="container m-0 p-0">
+ <div id="questions_welcome_template" class="op-ascii-txt" style="display:none;">
+|""""""""""""""""""""""&lt;'_ THE QUIZ _'&gt;"""""""""""""""""""""""|
+| __  __   __     _,                                          |
+| \\  \\   / ___ '||  ___  ___ __  _  _   ___                 |
+|  \\ /\\ / //_\) || // \)// \\ ||'||'|| //_\)                |
+|   \/  \/  \\__,_||_\\__,\\_//_||_||_||_\\__,                |
+|                                                             |
+|.-.---------------------------||--------------------------.-.|
+|                                                             |
+| Welcome to the crossroads of your destiny.                  |
+|                                                             |
+|.-.---------------------------||--------------------------.-.|
+|                                                             |
+| You are about to test your worthiness to Enter The Exit.    |
+| This is not to be taken lightly. To proceed, you must       |
+| answer the following questions.                             |
+|                                                             |
+| ╔════════════════════════════════════════════╗              |
+| ║ Those who pass will be eligible to compete.║              |
+| ╚════════════════════════════════════════════╝              |
++_____________________________________________________________+
+  </div>
+
+  <div id="greeting-warning-container">
+    <div id="greeting-container" class="container mt-3 ms-1">
+      <div id="eg-op">
+                <div class="op-ascii-txt">
+          <pre>███████╗██╗  ██╗██╗████████╗     ██████╗  █████╗ ███╗   ███╗███████╗
+██╔════╝╚██╗██╔╝██║╚══██╔══╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+█████╗   ╚███╔╝ ██║   ██║       ██║  ███╗███████║██╔████╔██║█████╗
+██╔══╝   ██╔██╗ ██║   ██║       ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝
+███████╗██╔╝ ██╗██║   ██║       ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+          </pre>
+        </div>
+
+                <div class="op-ascii-art">
+          <pre>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░▒▒▒▒▒▒░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░▒▒░░░░░░░░░░░░░░░░▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░▒▒▒▒░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░▒▒░░░░░░░░░░░░░░░░░░▒▒░▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒░░▒▒░░░░░░░░░░░░░░
+░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░░░░░▒░▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒░▒▒▒░░░░░░░░░░░░░
+░░░░░░░░░▒░▒▒▒▒▒▒░░░░░░░░░░░░░░░░▒▒░░▒░░░▒░▒▒░░▒▒▒▒░░░▒▒░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░
+░░░░░░░░░░░▒▒▒▒▒▒░░░░░░░░░░░░░▒▒▒▓▒▒▓▓▓▓▒▒▒░░░▒▒▒▒▒▒▒░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░
+░░░░░░░░░░▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░▒▒░░░▒▒▒▒▒▒░▒▒░░▒▒▒░░░░░▒▒▒▒▒▒▒░░░░░░░░░░░░░░
+░░░░░░░░░░▒▒▒▒▒▒▒░░░░░░░░░░░░░░▒░▓░▒▒▒▒░▒▒░░░░░░░▒░▒░░░░░▒▒▒▒▒▒▒░▒▒▒▒▒░▒░░░░░░░░░░░░░░
+░░░░░░░░░░▒▒▒▒▒▒▒▒░░░░▒░▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░▒░▒░░▒░░░░░░░░▒▒▒▒▒░▒░░░░░░░░░░░░░░
+░░░░░░░░░░▒▒░▒░▒▒▒░░░░▒░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▓▒░░░░░░░░░░▒▒▒▒▒▒▒░░░░░░░░░░░░░░
+░░░░░░░▒▒░▒▒▒▒▒▒▒▒▒░░░░▒░░░░▒░▒░░░░░░░▒▓▓▓▒░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░
+░░░░░░░▒▒▒▒▒▒▒░▒░░░░░░░░░░░░░░▒▒░░░░░▒▓▓▓▓▓▒░░░░░░░░░░░░░░░░▒░░░░░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░
+░░░░░░░░░░░▒░░░░░░░░░░░░░░░░░░░▒▓▓▒▒▒▒▒▒▓▓▓▓▒▒░░░░░░░░░░░░░▓▓▒▒▒▒░░░░░░▒░░▒▒▒░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▓▓▓▓▒▓▓▓▒░░░░▒░░▒▓▓▓▓▓▓▓▒▒░░░░░▓▓▒▒▒▒▒▒░░░░░░░▒░▒▒░░░░░░░░░
+░░░░░░░░░░░▒░░░░░░░░▒░░▒▒▒▒▒▓▓▒▓▓▒▓▒░░░░░░░░▒▓▓▓▓▓▒▓▓▓▓▓▒▓▓▒░▒▒▒▒░░░▒▒▒▒▒░░░░░░░░░░░░░
+░░░░░░░░░▒▒▒░▒▒▒░░░▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓░░░░░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░▒░░░░▒▒▒▓▒▒▒▒░░░░░░░░░░░░
+░░░░░░░▒▒▒▒▒▒▒▒░░░░░░░▒▒▒▒▒▒▒▒▓▓▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░▒░░░░░░▒▒▓▒▓▓▒▒▒░░░░░░░░░░░░
+░░░░░░░▒▒▒▓▒▒▓▒░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░▒▓▓▓▓▓▓▓▓▒▒▒▒░░░░░░░░▒▒▒▓▓▒▒▒░░░░░░░░░░░░
+░░░░░░░▒▒▒▓▒▓▓▒░░░░░▒▓▒░▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▓▓▓▒▒░▓▓▓▓▒▒▒▒▒▒▒▒░░░▒▒░▒▒▓▒▒▒▒▒░░░░░░░░░░░
+░░░░░░░▒▒▒▒▒▒▒▒▒▒░░░▒▓▒▒▒░░▒▒▒▒▒▒▒▒▒░░░░░░░░▒▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░
+░░░░░░░▒▒▒▒▒▒▒▒▒░░░░▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒░▒▒▒▒▒░░▒░░░▒▒▒▒▒▒▒▒░░░░░░░░░░░
+░░░░░░░░▒▒▒▒▒▒▒░░░░░▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒░░░░░▒░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░▒▒░░░░░▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒░▒▒░░░░░░░░░░░▒░░░░░░░░░░░
+░░░░░░░░░░░░▒░░░░░░░░░░▒▒░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒░▒░░░▒░░░░░░░░░░░░░▒░░░░░░░░░░░
+░░░░░░░▒░░░░░░░░░░░░▒▒░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░░░░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░▒░░░░░░░░░░░░░░░░░░░░░░░▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒░░▒░░░░░░░░░░░░░░░▒░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒░░░░░▒░░▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░▒▒▒░░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒░░░░░░░░░░░░░░░░░░░▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░▒░░░░░░░░░░▒░░░░░░░░░░░░░░░░▓▓▓▓▒░▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░▒░░░▒░░░░░▒░░░░░░░░░░▒▒▒▒▒▓▓▓▓▒▒▒▒░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░░▒▒▒░░░░░▒▒▒▒▒▒▓▓▒▒▓▓▓▒▒░▒░░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░░▒░▒░░▒▒▒▒▒▒▒▒▒▒▓▓▓▓▒▒▒▒░░░░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒░▒▒▒▒░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░▒▒▒░░▒░░░░░░▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░▒▒░░░▒▒░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒░░░░░▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒░░░░░░▒▒▒▒░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░▒░░▒▒░░▒░░░░░░▒░▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░▒░░░░░░░▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░
+░░░░░░░░░░░░░░▒▒▒▒▒░░░░░▒▒▒▒░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░
+        </pre>
+      </div>
+
+        <div class="m-0 p-0">
+      <div class="op-ascii-txt p-0 m-0 d-block d-md-none">
+<pre>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                  ▓
+▓    In our lifetime, the once open and prosperous internet was    ▓
+▓    transformed into a global surveillance machine. Bitcoin       ▓
+▓    proved to the world that if we can’t reform a system, we      ▓
+▓    can create a new one and exit into it.                        ▓
+▓                                                                  ▓
+▓    Logos is building this new system, a counter-Net that         ▓
+▓    embodies the dream of web3. We are looking for 3,000          ▓
+▓    high-level operators to be the founding figures of this       ▓
+▓    new enclave in cyberspace. This game is a test built to       ▓
+▓    select those worthy of being the first to exit into it.       ▓
+▓                                                                  ▓
+▓    If you make it through and complete all the quests, proving   ▓
+▓    your commitment and skill, you will be given a chance to      ▓
+▓    mint a new identity and acquire the assets needed to          ▓
+▓    operate in the new ecosystem.                                 ▓
+▓                                                                  ▓
+▓    We are looking for 3,000 high level operators to be the       ▓
+▓    founders of a new world in cyberspace. This game is built     ▓
+▓    to select those worthy of being the first to exit into it.    ▓
+▓                                                                  ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+</pre>
+      </div>
+      <div class="op-ascii-txt p-0 m-0 d-none d-md-block">
+<pre>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                                   ▓
+▓  In our lifetime, the once open and prosperous internet was transformed into a    ▓
+▓  global surveillance machine. Bitcoin proved to the world that if we can’t        ▓
+▓  reform a system, we can create a new one and exit into it.                       ▓
+▓                                                                                   ▓
+▓  Logos is building this new system, a counter-Net that embodies the dream         ▓
+▓  of web3. We are looking for 3,000 high-level operators to be the founding        ▓
+▓  figures of this new enclave in cyberspace. This game is a test built to select   ▓
+▓  those worthy of being the first to exit into it.                                 ▓
+▓                                                                                   ▓
+▓  If you make it through and complete all the quests, proving your commitment      ▓
+▓  and skill, you will be given a chance to mint a new identity and acquire the     ▓
+▓  assets needed to operate in the new ecosystem.                                   ▓
+▓                                                                                   ▓
+▓  We are looking for 3,000 high level operators to be the founders of a new world  ▓
+▓  in cyberspace. This game is built to select those worthy of being the first to   ▓
+▓  exit into it.                                                                    ▓
+▓                                                                                   ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+</pre>
+      </div>
+</div>
+
+          <div class="m-0 p-0">
+    <button type="button" id="terminal-btn" class="op-ascii-txt glitch">
+      <pre>╔═════════════════════╗
+║   enter_the_exit    ║
+╚═════════════════════╝
+      </pre>
+    </button>
+  </div>
+
+      </div>
+    </div>
+        <div id="exit-warning" class="container mt-3 ms-2 op-ascii-txt" style="display:none;">
+      <div class="d-none d-md-block">
+        <pre>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                                                ▓
+▓  WARNING: You are about to enter into the unknown. Once you begin, there is no turning back:   ▓
+▓                                                                                                ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+        </pre>
+      </div>
+      <div class="d-block d-md-none">
+        <pre>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                 ▓
+▓  WARNING: You are about to enter into the unknown.              ▓
+▓  Once you begin, there is no turning back:                      ▓
+▓                                                                 ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+        </pre>
+      </div>
+      <div class="mt-0">
+        <button id="start-btn" class="terminal-link">
+          <h4 class="m-0 p-0">&gt;Start</h4>
+        </button>
+      </div>
+      <div class="mt-0">
+        <button id="cancel-btn" type="button" class="terminal-link ">
+          <h4 class="m-0 p-0">&gt;Cancel</h4>
+        </button>
+      </div>
+    </div>
+
+    <div id="connect_welcome_template" class="op-ascii-txt" style="display:none;">
+|"""""""""""""""""""&lt;'_ CONNECT BITCOIN _'&gt;"""""""""""""""""""|
+|     ____                            _                       |
+|    / ___|___  _ __  _ __   ___  ___| |_                     |
+|   | |   / _ \| '_ \| '_ \ / _ \/ __| __|                    |
+|   | |__| (_) | | | | | | |  __/ (__| |_                     |
+|    \____\___/|_| |_|_| |_|\___|\___|\__|                    |
+|                                                             |
+|.-.---------------------------||--------------------------.-.|
+| ╔═══════════════════════════════════════════════════╗       |
+| ║ Please connect a bitcoin wallet before continuing.║       |
+| ╚═══════════════════════════════════════════════════╝       |
+|  We currently support                                       |
+|    - Unisat                                                 |
+|    - XVerse                                                 |
+|    - Phantom                                                |
++_____________________________________________________________+
+</div>
+
+  </div>
+  <div id="term-container" class="terminal"></div>
+</div>
+
+
+  <div style="display:none">
+    <form id="id_connect_form" action="/connect/" method="POST"><input type="hidden" name="csrfmiddlewaretoken" value="WFqDk4CHj9JrRgs4qhmUwFNQLP1zLhtDWAQsnFQ8pHjSegK07g4mf1cXYOAJYKPA">
+      <input id="id_wallet_address" name="wallet_address" type="text">
+    </form>
+  </div>
+
+
+<script>
+</script>
+
+
+
+
+  <script>
+    let exit_term = null;
+    let hasXverseWallet = false;
+    let hasUnisatWallet = false;
+    let hasPhantomWallet = false;
+    let wallet_list = [];
+
+function is_object(val) {
+    return Object.prototype.toString.call(val) === "[object Object]";
+}
+
+
+const connectUnisat = async () => {
+  if (window.unisat !== undefined) {
+    try {
+
+      let accounts = await window.unisat.requestAccounts();
+      $("#id_wallet_address").val(accounts[0]);
+      exit_term.echo("\n[[;#0FFF00;]Connecting ...]")
+      exit_term.pause();
+      setTimeout(function() { document.getElementById('id_connect_form').submit() }, 3000);
+    } catch (e) {
+      exit_term.echo("\n[[;orange;]Connection to Unisat wallet failed: " + e + "]")
+    }
+  }
+  else {
+    exit_term.echo("\n[[;orange;]It doesn't look like you have the Unisat Wallet installed!]")
+  }
+}
+
+const connectPhantom = async () => {
+  if (window.phantom !== undefined){
+      hasPhantomWallet = true;
+      try {
+        const accounts = await window.phantom.bitcoin.requestAccounts(params={"purposes": ["ordinals"]});
+        $.each(accounts, function(index, account){
+          if (account['purpose'] === 'ordinals'){
+            $("#id_wallet_address").val(account['address']);
+            exit_term.echo("\n[[;#0FFF00;]Connecting ...]")
+            exit_term.pause();
+            setTimeout(function() { document.getElementById('id_connect_form').submit() }, 3000);
+          }
+        });
+      } catch (err) {
+        exit_term.echo("\n[[;orange;]Connection to Unisat wallet failed: " + e + "]")
+      }
+  } else {
+    exit_term.echo("\n[[;orange;]It doesn't look like you have the Phantom Wallet installed!]")
+  }
+}
+
+const connectXverse = async () => {
+  if (window.XverseProviders !== undefined) {
+    try {
+      const accounts = await window.phantom.bitcoin.requestAccounts(params = {"purposes": ["ordinals"]});
+      $.each(accounts, function (index, account) {
+        if (account['purpose'] === 'ordinals') {
+          $("#id_wallet_address").val(account['address']);
+            exit_term.echo("\n[[;#0FFF00;]Connecting ...]")
+            exit_term.pause();
+            setTimeout(function() { document.getElementById('id_connect_form').submit() }, 3000);
+        }
+      });
+    } catch (err) {
+      exit_term.echo("\n[[;orange;]Connection to Unisat wallet failed: " + e + "]")
+    }
+  } else {
+    exit_term.echo("\n[[;orange;]It doesn't look like you have the XVerse Wallet installed!]")
+  }
+}
+
+let commands = {
+  enter_the_exit: function() {
+              const { input } = $.terminal.forms.types;
+
+              var spec = [
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do agree with the statement that you have nothing to fear          ▓
+▓ if you have nothing to hide?                                       ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 1 Answer >: ',
+                      name: 'question_1'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Should individuals have the right to use encryption to protect     ▓
+▓ their personal communication beyond government intervention        ▓
+▓ or backdoors?                                                      ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 2 Answer >: ',
+                      name: 'question_2'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do you support the use of cryptocurrencies to exit from            ▓
+▓ traditional banking systems?                                       ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 3 Answer >: ',
+                      name: 'question_3'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Should individuals have the freedom to engage in any consensual    ▓
+▓ economic transactions without government interference?             ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 4 Answer >: ',
+                      name: 'question_4'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do you believe that government intervention should be minimal      ▓
+▓ in the economic transactions lives of individuals?                 ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 5 Answer >: ',
+                      name: 'question_5'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do you support the idea that the internet should remain a free     ▓
+▓ and open space, protected from centralized control by              ▓
+▓ any government or corporation?                                     ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 6 Answer >: ',
+                      name: 'question_6'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Should individuals have the unrestricted ability to use            ▓
+▓ anonymous cryptocurrencies for transactions?                       ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 7 Answer >: ',
+                      name: 'question_7'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do you think that the use of blockchain technology can help        ▓
+▓ protect free speech by creating censorship-resistant platforms?    ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 8 Answer >: ',
+                      name: 'question_8'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do you believe that political authorities need to control          ▓
+▓ communications to prevent the spread of ideas that                 ▓
+▓ threaten society?                                                  ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 9 Answer >: ',
+                      name: 'question_9'
+                  },
+                  {
+                      type: input,
+                      message: `[[;#0aff00;]
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓                                                                    ▓
+▓ Do you believe transparency is essential for the accountability    ▓
+▓ of institutions, political and otherwise?                          ▓
+▓                                                                    ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n
+|""""""""""""""""""""""""""<\' OPTIONS \'>""""""""""""""""""""""""""""""|
+| 1. Strongly Disagree                                                |
+| 2. Disagree                                                         |
+| 3. Neutral                                                          |
+| 4. Agree                                                            |
+| 5. Strongly Agree                                                   |
+|                                                                     |
+|"""""""""""""""""""""<\' CHOOSE YOUR ANSWER \'>""""""""""""""""""""""""|]\n`,
+                      prompt: 'Question 10 Answer >: ',
+                      name: 'question_10'
+                  },
+  ];
+              $.terminal.forms.form(this, spec).then(form => {
+                let total_score = 0;
+                  $.each( form, function( key, value ) {
+                    if (value === "2") {
+                      total_score += 1;
+                    } else if (value === "3") {
+                      total_score += 2;
+                    } else if (value === "4") {
+                      total_score += 3;
+                    } else if (value === "5") {
+                      total_score += 4;
+                    }
+                  });
+                  console.log("Score: " + total_score);
+                  if (total_score >= 30){
+                    window.location.href = ("/success/");
+                  } else {
+                    window.location.href = ("/sorry/");
+                  }
+              });
+          },
+  help: function() {
+    this.echo('\n[[;#01A6FF;]Available commands: ]\n    ' + Object.keys(commands).join('\n    ') + "\n");
+  },
+  manifesto: function() {
+    this.echo("Opening Logos Manifesto (https://logos.co/manifesto) in a new window");
+    window.open("https://logos.co/manifesto", '_blank').focus();
+  },
+  socials: function() {
+    this.echo("\n[[;lightgreen;]https://twitter.com/exit_operator]\n");
+    this.echo("[[;lightgreen;]https://discord.gg/logosnetwork]\n");
+  },
+  
+
+  connect: function() {
+    var self = this;
+    if (wallet_list.length > 1){
+      self.echo("[[;#01A6FF;]\nThe following wallets are available:]");
+      $.each(wallet_list, function(index, value){
+        self.echo("[[;#01A6FF;]  - " + value + "]");
+      });
+      self.push(function(input) {
+        let wallet_name = input.toLowerCase();
+        self.echo('\nConnecting with ' + wallet_name + ' wallet');
+        if (wallet_name === 'xverse') {
+          connectXverse();
+        } else if (wallet_name === 'unisat') {
+          connectUnisat();
+        } else if (wallet_name === 'phantom') {
+          connectPhantom();
+        } else {
+          self.echo("You entered an invalid wallet name.");
+        }
+        self.pop();
+      },
+      {
+      prompt: '[[;#01A6FF;]Please enter a wallet name :> ]'
+    });
+    } else if (wallet_list.length === 0){
+      self.echo("[[;#01A6FF;]\nCannot find a wallet to connect with.]\n")
+    } else {
+      if (wallet_list[0] === 'xverse'){
+        self.echo("Connecting ...");
+        setTimeout(connectXverse, 3000);
+      } else if (wallet_list[0] === 'unisat') {
+        self.echo("Connecting ...");
+        setTimeout(connectUnisat, 3000);
+      } else if (wallet_list[0] === 'phantom') {
+        self.echo("Connecting ...");
+        setTimeout(connectPhantom, 3000);
+      }
+    }
+  },
+
+  clear: function() {
+    this.reset()
+  },
+  terms_and_conditions: function() {
+    this.echo("Opening Terms and Conditions in a new window");
+    window.open("https://logos.co/terms\n", "_blank");
+  },
+  privacy_policy: function() {
+    this.echo("Opening Privacy Policy in a new window");
+    window.open("https://logos.co/privacy-policy\n", "_blank");
+  }
+}
+
+    $( document ).ready(function() {
+
+      if (window.XverseProviders !== undefined) {
+        wallet_list.push("xverse");
+      }
+      if (window.unisat !== undefined) {
+        wallet_list.push("unisat");
+      }
+      if (window.phantom !== undefined) {
+        wallet_list.push("phantom");
+      }
+
+      
+
+
+      $("#terminal-btn").on("click", function(){
+        $("#greeting-container").hide();
+        $("#exit-warning").show();
+      });
+
+      $("#cancel-btn").on("click", function(){
+        $("#exit-warning").hide();
+        $("#greeting-container").show();
+      });
+
+      $("#start-btn").on("click", function(){
+        $("#greeting-warning-container").hide();
+        $("#greeting-container").show();
+        $("#exit-warning").hide();
+        exit_term = $('#term-container').terminal(commands,
+          {
+            name: 'Exit Game',
+              
+                greetings: "[[;#0BFF00;]" + connect_welcome_template.innerHTML + "]",
+              
+            completion: true,
+            onInit: function(term) {
+              
+                term.exec("connect");
+              
+            },
+            renderHandler: function(val) {
+                if (is_object(val) || Array.isArray(val)) {
+                    return JSON.stringify(val, true, 4);
+                }
+                return val;
+            },
+            checkArity: false
+        });
+
+      
+
+
+      });
+
+
+    $(".glitch").glitch({
+      layers: ["#0fff009c","#0fff009c"],
+      offset: [7, 0],
+    });
+
+});
+  </script>
+
+
+
+
+
+</body></html>
