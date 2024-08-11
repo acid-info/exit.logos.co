@@ -1,0 +1,15 @@
+{
+    "timestamp": "2024-08-11T16:38:07Z",
+    "git": {
+        "commit": "caed32c2a0710421cd95f494d91cbb71ce9a0666",
+        "branch": "origin/deploy-with-caddy-git",
+        "url": "git@github.com:acid-info/exit.logos.co.git"
+    },
+    "build": {
+        "id": "4",
+        "number": "4",
+        "name": "website/dev-exit.logos.co",
+        "slave": "linux-02",
+        "url": "https://ci.infra.status.im/job/website/job/dev-exit.logos.co/4/"
+    }
+}
