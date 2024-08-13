@@ -1,15 +1,15 @@
 {
-    "timestamp": "2024-08-13T20:10:31Z",
+    "timestamp": "2024-08-13T20:18:24Z",
     "git": {
-        "commit": "2d3ec61c67decd6f8215cf8913748d9c6e695dad",
-        "branch": "origin/fix-jenkinsfile",
+        "commit": "c8e6232392b6866da9aa1e78517c3403eee54c24",
+        "branch": "origin/develop",
         "url": "git@github.com:acid-info/exit.logos.co.git"
     },
     "build": {
-        "id": "12",
-        "number": "12",
+        "id": "13",
+        "number": "13",
         "name": "website/dev-exit.logos.co",
         "slave": "linux-02",
-        "url": "https://ci.infra.status.im/job/website/job/dev-exit.logos.co/12/"
+        "url": "https://ci.infra.status.im/job/website/job/dev-exit.logos.co/13/"
     }
 }
