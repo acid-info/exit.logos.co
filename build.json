@@ -1,0 +1,15 @@
+{
+    "timestamp": "2024-08-15T16:14:31Z",
+    "git": {
+        "commit": "b45a6313316e6601e021808ef1e9bc701c04a3ec",
+        "branch": "origin/master",
+        "url": "git@github.com:acid-info/exit.logos.co.git"
+    },
+    "build": {
+        "id": "4",
+        "number": "4",
+        "name": "website/master-exit.logos.co",
+        "slave": "linux-01",
+        "url": "https://ci.infra.status.im/job/website/job/master-exit.logos.co/4/"
+    }
+}
